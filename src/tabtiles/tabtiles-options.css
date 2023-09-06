@@ -1,0 +1,86 @@
+  /* 
+  
+  lasttabback options.html css
+  
+  */
+
+  body 
+  { font-family: sans-serif; color: #444; margin: 25px 0px; 
+    padding: 0px; text-align: center;}
+  
+  h1
+  { /*text-shadow: 2px 2px 2px #aaa; font-size: 1.6em; color: #777;*/}
+  h2, .options_header
+  { padding-top: 0.5em; font-size: 1.2em;}
+  h3
+  { color: #aaa; font-size: 1.2em; border-bottom: 2px solid #aaa;}
+  
+  div#preference
+  { margin: 0px auto; border-top: 2px solid #aaa; padding-top: 0.5em;}
+  img#ltb_img
+  { padding-bottom: 0.7em;}
+  
+  .save
+  { font-size: 10pt; font-weight: bold;}
+  
+  /*div#header, */div#preference, div#about
+  { width: 70%;}
+  div.content
+  { text-align: left; margin-left: 10px;}
+  div.content table
+  { border: none;}
+  
+  .right
+  { float: right;}
+  .left
+  { float: left;}
+  
+  .helplink
+  { text-decoration: none; font-size: 0.7em;}
+  a.helplink:hover
+  { text-decoration: underline;}
+  a, a:visited
+  { color: purple}
+  div.help
+  { text-align: left; border: 1px solid #ffff33;
+    background: #ffffcc; padding: 1em 2em;
+  }
+  div.help a
+  { color: #aaa;}
+  div#header
+  { margin-bottom: 2em;}
+  div#preference
+  { margin-bottom: 2em;}
+  div.help .button
+  { background-color: #eee; padding: 0 0.25em; border: solid 1px black}
+  div.help .button
+  { line-height: 2em}
+    
+  div#header 
+  { font-family: 'Lucida Console'}
+  div#header .tab, div#header .tiles
+  { padding: 0.4em 0.2em; /*0.5em 0.75em;*/ background-color: #fc2;
+    font-family: 'Lucida Console', Courier; color: black; 
+    margin-right: 0.25em; font-size: 1.2em;}
+  div#header .tab
+  { background-color: #FFA61B}
+  div#header img 
+  { height: 3em}
+  div#header .subheading    
+  { font-size: 0.3em; font-weight: bold}
+   
+  span#status
+  { background-color: #ffff8d;}
+  
+  input
+  { width: 2em; text-align: right;}
+  
+  #alternateHomepage 
+  { width: 18em; text-align: left}
+  
+  #searchProvider_custom
+  { width: 18em; text-align: left}
+
+  #showHiddenOptions
+  { text-decoration: none; pointer: default; color: red; font-style: italic }
+  .hiddenOption {color: red}

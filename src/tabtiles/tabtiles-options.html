@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+    <title>tabtiles - Options</title>
+    
+    <link href = "tabtiles-options.css" rel = "stylesheet" type = "text/css" />
+    
+    <script type = "text/javascript" src = "utils.js"></script>
+    <script type = "text/javascript" src = "tabtiles-default.js"></script>
+    <script type="text/javascript" src = "tabtiles-options.js"></script>
+       
+  </head>
+  
+  <body>
+  
+    <div id="header">
+      <h1>
+        <!-- <span class = "tab">tab</span><span class = "tiles">tiles</span> -->
+        <img src = "icons/logo-nobackground.png" />
+        <div class = "subheading">
+          Control your tabs with tiles
+          &bull; Large tiles for large monitors
+          <br />
+          Full screen (F11) browsing
+          &bull; Type-to-search
+          &bull; Keyboard tab navigation
+          <br />
+          <a href="#" id = "showHiddenOptions">&nbsp;</a>
+        </div>
+      </h1>
+    </div>
+    
+    <div id="preference">
+      <div class="content">
+        <span class = "options_header">
+          Options
+          <a class = "helplink" href="#help">Go to help section</a>
+        </span>       
+
+        &nbsp;<span id="status"></span>
+        <div class = "save right">
+          Remember to&nbsp;
+          <button id = "save">Save changes</button>
+        </div>
+
+        <div style = "clear: both"></div>
+
+        <form>
+          
+          <p>
+            Show tabtiles when..
+            
+            <p style = "margin-left: 1em">
+            
+              <label for="allowWhenRestored">Restored (normal):</label>
+              <input id = "allowWhenRestored" type = "checkbox" />
+              
+              <label for="allowWhenMaximized">Maximized:</label>
+              <input id = "allowWhenMaximized" type = "checkbox" />
+              
+              <label for="allowWhenFullscreen">Full screen (F11):</label>
+              <input id = "allowWhenFullscreen" type = "checkbox" /><br />
+            </p>
+              
+              <label for="autohide">Auto hide (doesn't show the mini mode, only full):</label>
+              <input id = "autohide" type = "checkbox" /><br />
+
+                <div style="padding-left: 1em">
+                  
+                    <p>
+                        <label for="showzoneis1px"
+                               title="This is not used when in a restored window, as it might be difficult to activate">Auto hide activation is 1 pixel high (when in full screen or maximized state):</label>
+                        <input id = "showzoneis1px" type = "checkbox" />
+                    </p>
+                    
+                    <p>
+                        <label for="hideInterval">Auto-hide interval (set to 0 to hide instantly when mouse moves away):</label>
+                        <input id = "hideInterval" type = "text" /> milliseconds
+                    </p>
+                  
+                </div>
+            
+          </p>
+          
+          <p>
+              <label for="disableMiniView">Disable resizing to mini mode when not in use:</label>
+              <input id = "disableMiniView" type = "checkbox" />
+          </p>
+          
+          <p>
+            <label for="showat">Position of the bar:</label>
+            <div style = "margin-left: 1em">
+              <p>
+                <label for = "showat">Show at:</label>
+                <select id = "showat">
+                  <option value = "top">Top of window</option>
+                  <option value = "bottom">Bottom of window</option>
+                </select>
+              </p>
+              <p name = "hiddenfield" style = "display: none" class = "hiddenOption">
+                <label for = "hideHorizontalScrollbar"
+                  title = "Note: Showing the address bar will temporarily show the horizontal scrollbar too (if there is one), so you can get to it if needed. Warning: some sites don't respond well with this - the vertical scrollbar sometimes becomes incapacitated too">
+                  Try to hide horizontal scrollbar:
+                </label>
+                <input id = "hideHorizontalScrollbar" type = "checkbox" />
+                <br />(Only does this when set to Bottom, and for non-secure pages)
+              </p>
+            </div>            
+          </p>
+          
+          <p>
+            <label for="largeNewTab" title = "This places it on the left too">Large "New tab" button:</label>
+            <input id = "largeNewTab" type = "checkbox" />
+          </p>
+
+          <p>
+            <label for="minheight">Minimum height:</label>
+            <input id = "minheight" type = "text" /> pixels
+          </p>
+          
+          <p>
+            <label for="maxheight">Maximum height:</label>
+            <input id = "maxheight" type = "text" /> pixels
+          </p>
+            
+          <p>
+            <label for="pctheight">Usual height - percentage of the 
+              window height: </label>
+            <input id = "pctheight" type = "text" /> %
+          </p>
+          
+          <p>Mini mode height:</p>         
+          <div style = "margin-left: 1em">
+
+            <p>
+              <label for="min_pctheight">Percentage reduction, to </label>
+              <input id = "min_pctheight" type = "text" /> % of usual height
+            </p>     
+                             
+            <p>
+              <label for="minheight_mini">Minimum </label>
+              <input id = "minheight_mini" type = "text" /> pixels
+            </p>     
+          
+          </div>
+
+          <!--<p>
+            <label for="backgroundtransparent">Bar has no background:</label>
+            <input id = "backgroundtransparent" type = "checkbox" />
+          </p>-->
+          
+          <p>
+            <label for="disableTooltip">Disable hover/focused item popup hint:</label>
+            <input id = "disableTooltip" type = "checkbox" />
+          </p>
+          
+          <p>
+            <label for="centerTiles">Center tiles:</label>
+            <input id = "centerTiles" type = "checkbox" />
+            <br />
+            <div title = "Note that the tiles are only centered when the total number of tabs are less than a page width!">
+              <label for="centerTooltip">Center popup hints too (only if tiles are centered):</label>
+              <input id = "centerTooltip" type = "checkbox" />
+            </div>
+          </p>
+          
+          <p>
+            <label for="oldStyle">Use old-style colors (without extra highlighting for selected item):</label>
+            <input id = "oldStyle" type = "checkbox" />
+          </p>
+
+          <p>
+            <label for="disableSelShadow">Disable shadow on selected item text:</label>
+            <input id = "disableSelShadow" type = "checkbox" /><br />
+            (not shown when using old-style colors)
+          </p>
+          
+          <hr />
+          
+          <p>
+            Address bar
+         
+            <div style = "margin-left: 1em">
+              <p>
+                <label for="enableAddressBar">Enable the address bar:</label>
+                <input id = "enableAddressBar" type = "checkbox" />
+              </p>
+
+              <p>
+                <label for="searchProvider">Search provider:</label>
+                <select id = "searchProvider">
+                  <option value = "google">Google</option>
+                  <option value = "bing">Bing</option>
+                  <option value = "yahoo">Yahoo!</option>
+                  <option value = "custom">Custom</option>
+                </select>
+                <div id = "searchProvider_custom_container" style = "">
+                  <label for= "searchProvider_custom">Custom provider URL:</label>
+                  <input id = "searchProvider_custom" type = "text" />
+                  <br />
+                  (search keywords are added to the end of this, so prepare your URL with that in mind)
+                </div>
+              </p>
+                
+              <p>
+                When using the address bar, open in a new tab     
+                <div style = "margin-left: 1em">
+                  <p>
+                    <label for="searchInNewTab">Search results (keywords):</label>
+                    <input id = "searchInNewTab" type = "checkbox" />
+                  </p>
+                  
+                  <p>
+                    <label for="addressInNewTab">Entered addresses (URLs):</label>
+                    <input id = "addressInNewTab" type = "checkbox" />
+                  </p>
+                </div>
+              </p>
+              
+            </div>
+            
+          </p>
+
+          <p>
+            <label for="alternateHomepage">Alternate homepage (right-click New tab or Home):</label>
+            <input id = "alternateHomepage" type = "text" />
+          </p>
+          
+          <hr />
+                    
+          <p>
+              
+            <label for="disableKeyboard">Disable all tabtiles keyboard functionality:</label>
+            <input id = "disableKeyboard" type = "checkbox" />
+            
+            <div style="padding-left: 1em">
+                
+                <p>
+                  <label for="disableKeyNav">Disable keyboard navigation only</label>
+                  <input id = "disableKeyNav" type = "checkbox" />
+                </p>
+
+                <p>
+                  <label for="disableTTS">Disable type-to-search only:</label>
+                  <input id = "disableTTS" type = "checkbox" />
+                </p>
+                
+            </div>
+          
+          </p>
+          
+          <hr />
+          
+          <p>
+            <label for="sensitivity">Sensitivity:</label>
+            <select id = "sensitivity">
+              <option value = "0">Normal</option>
+              <option value = "1">Slow</option>
+              <option value = "2">Fast</option>
+            </select>
+          </p>
+          
+        </form>
+      </div>
+      
+      <h2></h2>
+      <div class = "content">    
+        <div class = "left save">
+          <a href="#" id = "restore"
+            title = "You still need to save, with the button at the right">Reset to default values</a>
+        </div>
+        &nbsp;<span id="status2"></span>
+        <div class = "right save">
+          Remember to&nbsp;
+          <button id = "save2">Save changes</button>
+        </div>
+        <div style = "clear: both;">&nbsp;</div>
+      </div>
+      
+      <a id = "help"></a>
+      <div class = "help">
+      
+        <h3>Help</h3>
+        
+        <p>This extension displays the current browser window's tabs in tiles at 
+        the top or bottom of the screen.</p>
+        
+        <p>This is especially useful when viewing a page in full screen (F11) 
+        mode, and on large monitors where the usual browser tabs may be small 
+        and so difficult to click.</p>
+        
+        <p>Use the buttons to the left of the tabtiles bar to perform the following 
+        actions:</p>
+        
+        <p class = "buttons">
+          <img src = "icons/newtab.svg" style = "height: 1em" /> <i>Open a new tab</i><br />
+          <img src = "icons/newtab.svg" style = "height: 1em" /> <i>(Right click) Open a new tab, using the alternate homepage</i><br />
+          <img src = "icons/back.svg" style = "height: 1em" /> <i>Go back to the last page</i><br />
+          <img src = "icons/forward.svg" style = "height: 1em" /> <i>Go forward</i><br />
+          
+          <img src = "icons/address.svg" style = "height: 1em" /> <i>Show address / search bar</i><br />
+          <img src = "icons/home.svg" style = "height: 1em" /> <i>Go to New tab start page</i><br />
+          <img src = "icons/home.svg" style = "height: 1em" /> <i>(Right click) Go to the alternate homepage</i><br />
+          <img src = "icons/cancel.svg" style = "height: 1em" /> <i>Close the address / search bar</i><br />
+          <img src = "icons/cancel.svg" style = "height: 1em" /> <i>(Right click) Hide the tabtiles bar fully (for this page load - updating will show it again)</i><br />
+        </p>
+        
+        <p>Move the mouse over the tabtiles bar from side to side to scroll 
+        through the tabs. You can also use the mouse wheel for this.</p>
+        
+        <p>Click on a tab to go to it. Click on a selected tab to allow easily
+        closing it with another click (so this allows double-clicking to close 
+        it too - but the tab must be selected first)</p> 
+        
+        <p>You can also right click a tab to pin / unpin it. This switches 
+        it to a minimized mode, moving it to the left of the bar.</p>
+        
+        <p>As well as using the mouse, you can navigate using the keyboard:</p>
+        
+        <ul>
+          <li>Use the left and right arrows to select other tabs, and press Enter to
+          go to them</li>
+          <li>Press a key (a - z) to enter an address</li>
+          <li>Alt+\ or F6 (when in full screen) shows the address bar</li>
+          <li>Enter can also close tabs if the current tab is 
+          selected - press Enter twice (you need to use the left / right arrows
+          to select it first)</li>
+          <li>Press Esc to cancel the tab selection or close the address bar</li>
+          <li><i>If the keyboard functions interfere with pages you are viewing,
+          you can disable them in the options above</i></li>
+        </ul>
+        
+        <p>You can also choose when you want tabtiles to be displayed - either
+        on a normal restored window, a maximized window, or a full screen (F11)
+        window. These can be set independently of each other.</p>
+        
+        <p>When the address / search bar is shown, enter an address to go to the 
+        page, or enter keywords to search. You can press Ctrl+Enter to add the
+        default .com suffix for a simple domain name.</p> 
+        
+        <p>Also supported is integration with Last Tab Back, if it is installed. 
+        This extension allows going back to other tabs if there are no pages to 
+        go back to in the current tab.</p>
+        
+        <p class = "buttons">        
+          <img src = "icons/back.svg" style = "height: 1em" /> <i>Go back to the last page, or close the 
+          tab and go to it's owner tab</i><br />
+          <img src = "icons/back.svg" style = "height: 1em" /> <i>(Right click) Go back to the tab's owner, 
+          without closing this tab</i>
+        </p>
+        
+        <b>
+        <p>Note that this extension will not function for special tabs, such as 
+        the New tab page or Options / Extension Options tabs (including this page). 
+        However, it will allow navigating to / closing these if viewed from a 
+        normal tab.</p>
+        </b>
+        
+        <h3></h3>  
+        
+        <span class = "helplink">Version 0.8.13</span>
+        <a class = "helplink right" href="#top">Back to top</a>
+        
+      </div>     
+       
+    </div>
+    
+  </body>
+  
+</html>

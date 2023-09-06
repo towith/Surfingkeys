@@ -1,11 +1,13 @@
 {
     "manifest_version": 2,
+    "minimum_chrome_version": "22",
     "name": "Surfingkeys",
     "short_name": "Rich shortcuts in vim spirit for productivity with keyboard.",
     "description": "Rich shortcuts to click links/switch tabs/scroll, capture pages, use your browser like vim for productivity.",
     "icons": {
         "16": "icons/16.png",
         "48": "icons/48.png",
+        "32": "tabtiles/icons/32x32.png",
         "128": "icons/128.png"
     },
     "commands": {
@@ -45,29 +47,40 @@
         "downloads",
         "topSites",
         "clipboardRead",
-        "clipboardWrite"
+        "clipboardWrite",
+        "chrome://favicon/"
     ],
     "background": {
         "scripts": [
-            "background.js"
+            "background.js",
+            "tabtiles/tabtiles-default.js",
+            "tabtiles/utils.js",
+            "tabtiles/background.js"
         ]
     },
     "content_scripts": [
         {
             "matches": [
-                "<all_urls>"
+                "<all_urls>",
+                "http://*/*",
+                "https://*/*"
             ],
             "match_about_blank": true,
             "js": [
-                "content.js"
+                "content.js",
+                "tabtiles/tabtiles-default.js",
+                "tabtiles/utils.js",
+                "tabtiles/tabtiles.js"
             ],
             "css": [
-                "content.css"
+                "content.css",
+                "tabtiles/tabtiles.css"
             ],
             "run_at": "document_start",
             "all_frames": true
         }
     ],
+    "options_page": "tabtiles/tabtiles-options.html",
     "web_accessible_resources": [
         "pages/neovim.html",
         "pages/default.js",
@@ -76,7 +89,19 @@
         "pages/frontend.html",
         "pages/pdf_viewer.html",
         "pages/shadow.css",
-        "pages/default.css"
+        "pages/default.css",
+        "tabtiles/tabtiles.css",
+        "tabtiles/icons/back.svg",
+        "tabtiles/icons/forward.svg",
+        "tabtiles/icons/address.svg",
+        "tabtiles/icons/home.svg",
+        "tabtiles/icons/newtab.svg",
+        "tabtiles/icons/go.svg",
+        "tabtiles/icons/cancel.svg",
+        "tabtiles/icons/history.svg",
+        "tabtiles/icons/closetab_redwhite.svg",
+        "tabtiles/icons/closetab_gray.svg",
+        "tabtiles/icons/closetab_black.svg"
     ],
     "content_security_policy": "script-src 'self'; object-src 'self'"
 }
