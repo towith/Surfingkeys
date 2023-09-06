@@ -1,7 +1,5 @@
-debugger;
 (function(document, window)
 {
-  debugger;
 
   var enable_lasttabback_integration = true;
 
@@ -775,7 +773,6 @@ debugger;
   // page load performance - until the user moves the mouse to the activation area
   function tabtiles_initComponents()
   {
-    debugger;
     if(!options_loaded) return;
 
     tabtiles_elem = document.createElement('div');
@@ -2219,7 +2216,6 @@ else if (document.onwebkitfullscreenchange === null)
 
     var inithere = false;
     if(tabtiles_elem === null) inithere = showIt;
-    debugger;
     if(inithere)
     {
       tabtiles_initComponents();
@@ -2273,7 +2269,6 @@ else if (document.onwebkitfullscreenchange === null)
       if(!tabtiles_elem) return; // if still not, quit - should do it later
     }
 
-    debugger;
     if(tabtiles_elem)
     {
       tabtiles_showIt(!((tabtiles_elem.style.display == 'none')&& options.autohide) && showIt, firstRun); // force to set it on first run

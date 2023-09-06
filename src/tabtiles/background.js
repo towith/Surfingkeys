@@ -56,7 +56,8 @@ function listen2(request, sendResponse) {
 
     sendResponse("done");
   }
-  return options;
+
+  return true;
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -65,7 +66,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   }
 
   listen1(request, sender, sendResponse);
-  const options = listen2(request, sendResponse);
+  listen2(request, sendResponse);
+
+  return true;
 })
 
 function listen1(request, sender, sendResponse) {
@@ -228,6 +231,8 @@ function listen1(request, sender, sendResponse) {
       break;
 
   }
+
+  return true;
 }
 
 
