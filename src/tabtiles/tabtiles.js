@@ -1,5 +1,7 @@
+debugger;
 (function(document, window)
 {
+  debugger;
 
   var enable_lasttabback_integration = true;
 
@@ -15,7 +17,7 @@
   {
     try
     {
-      chrome.runtime.sendMessage({name: "getPreferences"},
+      chrome.runtime.sendMessage({name: "getPreferences", __source__: "tabTilesMsg"},
         function(response)
         {
           if(response)
@@ -483,6 +485,7 @@
                         //console.log('moving tab #' + tabtiles_array[tabtiles_keyboardFocus_index].tabtiles_id + ' to index: ' + toindex);
                         chrome.runtime.sendMessage(
                           {
+                            __source__: "tabTilesMsg",
                             name: 'moveTab',
                             'tabid': tabtiles_array[tabtiles_keyboardFocus_index].tabtiles_id,
                             'moveto': toindex
@@ -515,6 +518,7 @@
                   //console.log('moving tab #' + tabtiles_array[tabtiles_keyboardFocus_index].tabtiles_id + ' to index: ' + toindex);
                   chrome.runtime.sendMessage(
                   {
+                    __source__: "tabTilesMsg",
                     name: 'moveTab',
                     'tabid': tabtiles_array[tabtiles_keyboardFocus_index].tabtiles_id,
                     'moveto': toindex
@@ -771,6 +775,7 @@
   // page load performance - until the user moves the mouse to the activation area
   function tabtiles_initComponents()
   {
+    debugger;
     if(!options_loaded) return;
 
     tabtiles_elem = document.createElement('div');
@@ -835,8 +840,16 @@
 
           var lasttabbackExtensionId = lasttabback_div.innerHTML.trim();
 
-          chrome.runtime.sendMessage(lasttabbackExtensionId, {func: 'lasttabback_backkeydown'});
-          chrome.runtime.sendMessage(lasttabbackExtensionId, {func: 'lasttabback_backkeyup'});
+          chrome.runtime.sendMessage({
+            name: 'lasttabbackExtensionId',
+            lasttabbackExtensionId,
+            __source__: "tabTilesMsg"
+          }, {func: 'lasttabback_backkeydown'});
+          chrome.runtime.sendMessage({
+            name: 'lasttabbackExtensionId',
+            lasttabbackExtensionId,
+            __source__: "tabTilesMsg"
+          }, {func: 'lasttabback_backkeyup'});
         }
         else history.back();
       }
@@ -855,8 +868,16 @@
 
           var lasttabbackExtensionId = lasttabback_div.innerHTML.trim();
 
-          chrome.runtime.sendMessage(lasttabbackExtensionId, {func: 'lasttabback_ctrlbackkeydown'});
-          chrome.runtime.sendMessage(lasttabbackExtensionId, {func: 'lasttabback_backkeyup'});
+          chrome.runtime.sendMessage({
+            name: 'lasttabbackExtensionId',
+            lasttabbackExtensionId,
+            __source__: "tabTilesMsg"
+          }, {func: 'lasttabback_ctrlbackkeydown'});
+          chrome.runtime.sendMessage({
+            name: 'lasttabbackExtensionId',
+            lasttabbackExtensionId,
+            __source__: "tabTilesMsg"
+          }, {func: 'lasttabback_backkeyup'});
         }
         else history.back();
         return false;
@@ -1064,7 +1085,7 @@
     // no, actually - chrome seems to unload it when on a different tab
     // but the manifest load does seem to appear faster at first
     // so - no harm loading it BOTH WAYS?.. best of both
-    loadjscssfile(chrome.extension.getURL('tabtiles.css'), 'css');
+    loadjscssfile(chrome.extension.getURL('tabtiles/tabtiles.css'), 'css');
 
     //loadjscssfile(chrome.extension.getURL('jquery-1.8.0.min.js'), 'js');
 
@@ -1119,7 +1140,7 @@
         tabtiles_mouseout();
       }, false);
 
-    //chrome.runtime.sendMessage({name: 'set_fullscreen'});
+    //chrome.runtime.sendMessage({name: 'set_fullscreen',__source__: "tabTilesMsg"});
     // seems to be a bug - it won't allow this to work in metro
     // so not much point
     // might add a way to save what the state is, so it can set it itself?
@@ -1490,7 +1511,7 @@
       goToURL(search_engine + text);
     else
       // or a new tab
-      chrome.runtime.sendMessage({name: 'goToURL', url: search_engine + text});
+      chrome.runtime.sendMessage({name: 'goToURL', url: search_engine + text, __source__: "tabTilesMsg"});
   }
 
   // address bar GO clicked - go to url or search
@@ -1544,7 +1565,7 @@
           goToURL(go_text);
         else
           // or a new tab
-          chrome.runtime.sendMessage({name: 'goToURL', url: go_text});
+          chrome.runtime.sendMessage({name: 'goToURL', url: go_text, __source__: "tabTilesMsg"});
       }
       else
         if(isAddress_noprotocol)
@@ -1554,7 +1575,7 @@
             goToURL('http://' + go_text);
           else
             // or a new tab
-            chrome.runtime.sendMessage({name: 'goToURL', url: 'http://' + go_text});
+            chrome.runtime.sendMessage({name: 'goToURL', url: 'http://' + go_text, __source__: "tabTilesMsg"});
 
         }
         else doSearch(go_text);
@@ -1628,7 +1649,8 @@
           sel_tabtile = event.target.parentElement.tabtiles_ownertile;
 
     if(sel_tabtile)
-      chrome.runtime.sendMessage({name: 'pinTab',
+      chrome.runtime.sendMessage({
+        __source__: "tabTilesMsg", name: 'pinTab',
         tabId: sel_tabtile.tabtiles_id, pinned: !sel_tabtile.tabtiles_pinned});
 
     tabtiles_onclick_disableforright = true;
@@ -1813,7 +1835,7 @@
 
     // set both the main and shadow icons here, to save processing (only has to prep it once)
     chrome.runtime.sendMessage(
-      {'name': 'getFavIcon', 'url': tab.url, 'img_id': newtile_icon_id},
+        {'name': 'getFavIcon', 'url': tab.url, 'img_id': newtile_icon_id, __source__: "tabTilesMsg"},
       function(response)
       {
         var img_elem = document.getElementById(response.img_id);
@@ -2023,7 +2045,7 @@
   // gets the tabs from the background page, since it can't do it itself
   function get_tabs(showSelected, callback)
   {
-    chrome.runtime.sendMessage({name: 'getTabs'},
+    chrome.runtime.sendMessage({name: 'getTabs', __source__: "tabTilesMsg"},
       function(response)
       {
         if(response)
@@ -2066,22 +2088,21 @@
           tabtiles_elem.removeChild(theNode);
           tabtiles_elem.removeChild(theNode.tabtiles_shadow);
         }
-    }
-    else chrome.runtime.sendMessage({name: 'closeTab', 'tabId': tabId});
+    } else chrome.runtime.sendMessage({name: 'closeTab', 'tabId': tabId, __source__: "tabTilesMsg"});
   }
 
   // new tab clicked
   function tabtiles_newtab()
   {
     event.stopPropagation();
-    chrome.runtime.sendMessage({name: 'newTab'});
+    chrome.runtime.sendMessage({name: 'newTab', __source__: "tabTilesMsg"});
   }
 
   // new tab right-clicked - open alternate homepage
   function tabtiles_newtab_alt()
   {
     event.stopPropagation();
-    chrome.runtime.sendMessage({name: 'newTab_alt'});
+    chrome.runtime.sendMessage({name: 'newTab_alt', __source__: "tabTilesMsg"});
     return false;
   }
 
@@ -2089,13 +2110,13 @@
   function tabtiles_address_home_click()
   {
     event.stopPropagation();
-    chrome.runtime.sendMessage({name: 'home'});
+    chrome.runtime.sendMessage({name: 'home', __source__: "tabTilesMsg"});
   }
 
   function tabtiles_address_history_click(e)
   {
     event.stopPropagation();
-    chrome.runtime.sendMessage({name: 'showHistory'});
+    chrome.runtime.sendMessage({name: 'showHistory', __source__: "tabTilesMsg"});
     tabtiles_address_toggle();
     return false;
   };
@@ -2126,7 +2147,7 @@
   // right away
   function tabtiles_getWindowState(callback)
   {
-    chrome.runtime.sendMessage({name: 'getWindow'},
+    chrome.runtime.sendMessage({name: 'getWindow', __source__: "tabTilesMsg"},
       function(response)
       {
         if(response && response.window)
@@ -2198,6 +2219,7 @@ else if (document.onwebkitfullscreenchange === null)
 
     var inithere = false;
     if(tabtiles_elem === null) inithere = showIt;
+    debugger;
     if(inithere)
     {
       tabtiles_initComponents();
@@ -2251,6 +2273,7 @@ else if (document.onwebkitfullscreenchange === null)
       if(!tabtiles_elem) return; // if still not, quit - should do it later
     }
 
+    debugger;
     if(tabtiles_elem)
     {
       tabtiles_showIt(!((tabtiles_elem.style.display == 'none')&& options.autohide) && showIt, firstRun); // force to set it on first run
@@ -2407,6 +2430,7 @@ else if (document.onwebkitfullscreenchange === null)
     if(tabtiles_tooltip) tooltipshown = tabtiles_tooltip.style.display != 'none';
     chrome.runtime.sendMessage(
       {
+        __source__: "tabTilesMsg",
         name: 'saveScroll',
         'scroll': tabtiles_elem.scrollLeft / tabtiles_elem.scrollWidth,
         'adjust_pctheight': tabtiles_adjust_pctheight,
@@ -3138,7 +3162,7 @@ else if (document.onwebkitfullscreenchange === null)
       if(details.name = 'tabs_onSelectionChanged')
       {
         if(tabtiles_elem/* && (tabtiles_selected_id != details.tabId)*/)
-          chrome.runtime.sendMessage({name: 'getScroll'},
+          chrome.runtime.sendMessage({name: 'getScroll', __source__: "tabTilesMsg"},
             function(response)
             {
               if(debug)console.log('tabtiles - get scroll');

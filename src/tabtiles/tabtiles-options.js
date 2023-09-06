@@ -156,6 +156,7 @@
     // send a message to the background page to save it
 
     options.name = "setPreferences";
+    options.__source__ = 'tabTilesMsg';
     chrome.runtime.sendMessage(options,
       function(response)
       {
@@ -179,7 +180,7 @@
     // then get the options by sending a message to the background page
     if(!resetDefaults)
     {
-      chrome.runtime.sendMessage({name: "getPreferences"},
+      chrome.runtime.sendMessage({name: "getPreferences", __source__: "tabTilesMsg"},
       function(response)
       {
         if(response)

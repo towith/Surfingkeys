@@ -443,6 +443,9 @@ function start(browser) {
         sendResponse(result);
     }
     chrome.runtime.onMessage.addListener(function (_message, _sender, _sendResponse) {
+        if (_message.__source__ === 'tabTilesMsg') {
+            return;
+        }
         if (self.hasOwnProperty(_message.action)) {
             if (_message.repeats > conf.repeatThreshold) {
                 _message.repeats = conf.repeatThreshold;

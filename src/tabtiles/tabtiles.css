@@ -1,50 +1,50 @@
 @media print
 {
-  #tabtiles, #tabtiles *, 
+  #tabtiles, #tabtiles *,
   #tabtiles_buttons, #tabtiles_buttons *,
   #tabtiles_tooltip, #tabtiles_tooltip * {display: none}
 }
 
 @media screen
 {
-  
-  #tabtiles, #tabtiles *, #tabtiles_buttons, #tabtiles_buttons *, #tabtiles_blankspacer, 
+
+  #tabtiles, #tabtiles *, #tabtiles_buttons, #tabtiles_buttons *, #tabtiles_blankspacer,
   #tabtiles_tooltip, tabtiles_tooltip *
-  { line-height: inherit; font-size: inherit; font-family: 'Lucida Console', 'Ubuntu Mono', Courier; 
+  { line-height: inherit; font-size: inherit; font-family: 'Lucida Console', 'Ubuntu Mono', Courier;
     padding: 0; margin: 0; width: auto; white-space: nowrap; border: 0; color: black;
     vertical-align: baseline; float: none; -webkit-text-size-adjust: auto}
-  #tabtiles img, #tabtiles span 
+  #tabtiles img, #tabtiles span
   { display: inline; box-shadow: none; background: transparent; margin: 0; padding: 0}
   #tabtiles div {display: block}
-  
+
   #tabtiles {display: none}
-  
-  #tabtiles 
-  { position: fixed; top: 0; left: 0; /*margin-left: 6em; */ width: 100%; z-index: 18000001; opacity: 0.85; 
+
+  #tabtiles
+  { position: fixed; top: 0; left: 0; /*margin-left: 6em; */ width: 100%; z-index: 18000001; opacity: 0.85;
     overflow: hidden; text-align: left; background-color: #e0e0e0}
-    
+
   #tabtiles_button, #tabtiles * {width: auto}
-  
+
   #tabtiles, #tabtiles * {pointer-events:none}
   #tabtiles .tabtiles_main, #tabtiles .tabtiles_main * {pointer-events:auto}
-  
+
   #tabtiles .tabtiles_main {position: relative; display: inline; top: 0.16em}
-  #tabtiles .tabtiles_main .tabtiles_contentdiv {position: absolute; top: 0; left: 0} 
-  
+  #tabtiles .tabtiles_main .tabtiles_contentdiv {position: absolute; top: 0; left: 0}
+
   #tabtiles .tabtiles_tile .tabtiles_contentdiv
   { padding: 0 0.4em;
-    background-color: #fc2; color: black; 
+    background-color: #fc2; color: black;
     margin-right: 0.3em; cursor: pointer; font-size: 0.6em; border-radius: 0.2em}
   #tabtiles .tabtiles_shadow .tabtiles_contentdiv
   { margin-left: 3px } /* mainly for when it is small */
-  #tabtiles .tabtiles_tile .tabtiles_contentdiv, 
-    #tabtiles .tabtiles_tile .tabtiles_contentdiv * 
+  #tabtiles .tabtiles_tile .tabtiles_contentdiv,
+    #tabtiles .tabtiles_tile .tabtiles_contentdiv *
   { font-family: 'Lucida Console', 'Ubuntu Mono', Courier}
-  #tabtiles .tabtiles_tile .tabtiles_contentdiv .closemsg {font-weight: bold}  
-    
+  #tabtiles .tabtiles_tile .tabtiles_contentdiv .closemsg {font-weight: bold}
+
   #tabtiles .tabtiles_tile .tabtiles_favicon
   { height: 1em; width: 1em; padding-right: 0.3em; vertical-align: middle}
-    
+
   #tabtiles .tabtiles_sel .tabtiles_contentdiv {background-color: #FFA61B; box-shadow: 3px 3px 2px #aaa;}
   #tabtiles .tabtiles_keyboardsel .tabtiles_contentdiv {background-color: #CD9E55; box-shadow: 3px 3px 2px #aaa;}
   /* close box */
@@ -52,57 +52,57 @@
   /*#tabtiles .tabtiles_sel .tabtiles_close {border: solid 1px #FFA61B; padding: 0 0.2em}*/
   #tabtiles .tabtiles_closemsg {color: #882F14}
   #tabtiles .tabtiles_closemsg_sides {color: #444}
-  
+
   #tabtiles .tabtiles_text {color: #333}
   #tabtiles .tabtiles_sel .tabtiles_text {color: black}
   #tabtiles .tabtiles_contentdiv:hover .tabtiles_text {color: black}
-  
+
   #tabtiles .tabtiles_main:not(.tabtiles_sel) .tabtiles_contentdiv:hover
   { background-color: #D5AF73; box-shadow: 3px 3px 2px #aaa;}
   #tabtiles .tabtiles_main:not(.tabtiles_sel) .tabtiles_contentdiv
   { box-shadow: 1px 1px 1px #aaa;}
   /*#tabtiles .tabtiles_main .tabtiles_contentdiv:hover .tabtiles_close {color: black}
   #tabtiles .tabtiles_main .tabtiles_contentdiv:hover .tabtiles_close:hover {color: white}*/
-  
+
   #tabtiles .tabtiles_close {color: /*gray*/transparent}
   /* close box */
   #tabtiles .tabtiles_close:hover {/*color: black;*/ /*border: solid 1px gray; padding: 0 0.2em*/}
   /*#tabtiles .tabtiles_main:not(.tabtiles_sel) .tabtiles_contentdiv:hover .tabtiles_close {border: solid 1px #D5AF73}
   #tabtiles .tabtiles_main:not(.tabtiles_sel) .tabtiles_contentdiv:hover .tabtiles_close:hover {border: solid 1px gray}*/
-  
-  #tabtiles_buttons 
-  { position: fixed; left: 0; top: 0; w1idth: 1em; z-index: 18000003; padding-right: 0.03em; overflow: hidden; white-space: nowrap; 
+
+  #tabtiles_buttons
+  { position: fixed; left: 0; top: 0; w1idth: 1em; z-index: 18000003; padding-right: 0.03em; overflow: hidden; white-space: nowrap;
     text-align: center; cursor: default; opacity: 0.85; color: black; background-color: transparent/*#eee*/}
   #tabtiles_buttons span.tabtiles_button {line-height: 1em}
-  #tabtiles_buttons span.tabtiles_button {background-color: #ddd; opacity: 0.8; padding: 0 0.25em} 
-  #tabtiles_buttons:hover span.tabtiles_button {/*background-color: #ccc; */opacity: 1} 
-  #tabtiles_buttons span.tabtiles_back/*, #tabtiles_buttons span.tabtiles_forward*/ {background-color: #aaa}   
+  #tabtiles_buttons span.tabtiles_button {background-color: #ddd; opacity: 0.8; padding: 0 0.25em}
+  #tabtiles_buttons:hover span.tabtiles_button {/*background-color: #ccc; */opacity: 1}
+  #tabtiles_buttons span.tabtiles_back/*, #tabtiles_buttons span.tabtiles_forward*/ {background-color: #aaa}
   #tabtiles_buttons .tabtiles_go, #tabtiles_buttons .tabtiles_cancel, #tabtiles_buttons .tabtiles_show
   { font-s1ize: 0.8em}
-  
+
   #tabtiles_buttons .tabtiles_button, #tabtiles_buttons input {float: left; display: block;}
   #tabtiles_buttons .tabtiles_button, #tabtiles_buttons input {font-size: 0.75em; line-height: 0.75em}
   #tabtiles_buttons input {background: white; color: black}
   #tabtiles_buttons .tabtiles_back
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/back.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/back.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_forward
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/forward.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/forward.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_address
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/address.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/address.svg'); background-repeat: no-repeat;}
   /* icon from http://cuttingcrazy.wordpress.com/2010/03/09/free-svg-file-earthly-elements-earth-clouds-rain-fire/ */
   #tabtiles_buttons .tabtiles_home
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/home.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/home.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_newtab
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/newtab.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/newtab.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_go
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/go.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/go.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_cancel
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/cancel.svg'); background-repeat: no-repeat;}
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/cancel.svg'); background-repeat: no-repeat;}
   #tabtiles_buttons .tabtiles_history
-  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/icons/history.svg'); background-repeat: no-repeat;}
-  
-  #tabtiles_buttons .tabtiles_back, 
-  #tabtiles_buttons .tabtiles_forward, 
+  { /*background: white */background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/history.svg'); background-repeat: no-repeat;}
+
+  #tabtiles_buttons .tabtiles_back,
+  #tabtiles_buttons .tabtiles_forward,
   #tabtiles_buttons .tabtiles_address,
   #tabtiles_buttons .tabtiles_home,
   #tabtiles_buttons .tabtiles_newtab,
@@ -114,95 +114,95 @@
   { background-size: 0.7em}
   #tabtiles_buttons .tabtiles_history
   { background-size: 0.6em}
-  
+
   #tabtiles_buttons .tabtiles_endspacer
-  { width: 1px; font-size: 1px; line-height: 1px; height: 1px; 
+  { width: 1px; font-size: 1px; line-height: 1px; height: 1px;
     visibility: hidden; background-color: transparent; color: transparent}
-  
-  #tabtiles .tabtiles_close 
-  { background-size: 0.95em; background-position: 1px center; 
+
+  #tabtiles .tabtiles_close
+  { background-size: 0.95em; background-position: 1px center;
     background-repeat: no-repeat; opacity: 0.85; padding-top: 0.1em}
   #tabtiles .tabtiles_close
-  { background-image: url('chrome-extension://__MSG_@@extension_id__/icons/closetab_gray.svg')}  
+  { background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/closetab_gray.svg')}
   #tabtiles .tabtiles_contentdiv:hover .tabtiles_close
-  { background-image: url('chrome-extension://__MSG_@@extension_id__/icons/closetab_black.svg');}  
+  { background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/closetab_black.svg');}
   #tabtiles .tabtiles_contentdiv .tabtiles_close:hover
-  { background-image: url('chrome-extension://__MSG_@@extension_id__/icons/closetab_redwhite.svg');}  
-   
+  { background-image: url('chrome-extension://__MSG_@@extension_id__/tabtiles/icons/closetab_redwhite.svg');}
+
   #tabtiles_buttons[class~="tabtiles_bottom"] .tabtiles_button,
     #tabtiles_buttons[class~="tabtiles_bottom"] input {margin-top: 0.35em}
   #tabtiles_buttons[class~="tabtiles_top"] .tabtiles_button,
     #tabtiles_buttons[class~="tabtiles_top"] input {margin-bottom: 0.35em}
-  #tabtiles_buttons[class~="tabtiles_bottom"] .tabtiles_back/*, 
+  #tabtiles_buttons[class~="tabtiles_bottom"] .tabtiles_back/*,
     #tabtiles_buttons[class="tabtiles_bottom"] .tabtiles_forward*/,
     #tabtiles_buttons[class="notranslate tabtiles_bottom tabtiles_largeNewTab"] .tabtiles_newtab {font-size: 1em; margin-top: 0}
-  #tabtiles_buttons[class~="tabtiles_top"] .tabtiles_back/*, 
+  #tabtiles_buttons[class~="tabtiles_top"] .tabtiles_back/*,
     #tabtiles_buttons[class="tabtiles_top"] .tabtiles_forward*/,
     #tabtiles_buttons[class="notranslate tabtiles_top tabtiles_largeNewTab"] .tabtiles_newtab {font-size: 1em; margin-bottom: 0}
-     
+
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_newtab {background-size: 0.58em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_go {background-size: 0.5em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_cancel {background-size: 0.65em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_home {background-size: 0.75em}
-  
-  #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_newtab {/*margin-right: 0.1em*/} 
-  #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_back, 
+
+  #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_newtab {/*margin-right: 0.1em*/}
+  #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_back,
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_forward {background-size: 0.7em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_back {margin-left: 0.1em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_forward {margin-left: 0.1em; margin-right: 0.1em; margin-right: 0.2em}
- 
+
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_newtab {border-top-left-radius: 0.3em; border-bottom-left-radius: 0.3em}
   /*#tabtiles_buttons .tabtiles_back {border-top-left-radius: 0.3em; border-bottom-left-radius: 0.3em}*/
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] .tabtiles_back {border-radius: 0.5em;}
   /*#tabtiles_buttons .tabtiles_forward {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}*/
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] span.tabtiles_forward {border-radius: 0.5em; background-color: #ccc}
-  
+
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] span.tabtiles_noaddress
   { border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
   #tabtiles_buttons[class~="tabtiles_smallNewTab"] span.tabtiles_endbutton
   { margin-right: 0.2em}
-  
+
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_newtab {background-size: 0.58em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] span.tabtiles_newtab {background-color: #aaa}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_go {background-size: 0.5em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_cancel {background-size: 0.65em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_home {background-size: 0.75em}
-  
-  #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_newtab {margin-left: 0.1em} 
+
+  #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_newtab {margin-left: 0.1em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_back {background-size: 0.6em; margin-right: 0.12em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_forward {background-size: 0.7em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_back {margin-left: 0.1em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_forward {margin-left: 0.1em}
- 
+
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_newtab {border-radius: 0.5em;}
   /*#tabtiles_buttons .tabtiles_back {border-top-left-radius: 0.3em; border-bottom-left-radius: 0.3em}*/
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] .tabtiles_back {border-radius: 0.5em;}
   /*#tabtiles_buttons .tabtiles_forward {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}*/
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] span.tabtiles_forward {border-top-left-radius: 0.3em; border-bottom-left-radius: 0.3em}
-  
+
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] span.tabtiles_noaddress
   { border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
   #tabtiles_buttons[class~="tabtiles_largeNewTab"] span.tabtiles_endbutton
   { margin-right: 0.2em}
-  
+
   #tabtiles_buttons span.tabtiles_button:hover {background-color: #FFA61B/*#999;*/}
-  
+
   #tabtiles_buttons .tabtiles_address {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
   #tabtiles_buttons .tabtiles_cancel {/*border-top-left-radius: 0.3em; border-bottom-left-radius: 0.3em*/}
   #tabtiles_buttons .tabtiles_go {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
-  
-  #tabtiles_buttons input 
+
+  #tabtiles_buttons input
   { border: solid 1px gray; /*margin: 0 0.2em; */position: relative; /*top: 0.1em; line-height: 1em*/ height: 1em; width: 8em}
-  
+
   #tabtiles_blankspacer {padding: 0; padding-right: 6.2em; visibility: hidden}
-  
+
   #tabtiles .tabtiles_shadow .tabtiles_contentdiv {visibility: hidden}
-  
-  #tabtiles_tooltip 
+
+  #tabtiles_tooltip
   { position: fixed; z-index: 18000000; opacity: 0.9; text-align: left;
-    background-color: black; border: solid 1px gray; border-radius: 0.5em; 
-    padding: 1em} 
-  #tabtiles_tooltip_line1, #tabtiles_tooltip_line2 
+    background-color: black; border: solid 1px gray; border-radius: 0.5em;
+    padding: 1em}
+  #tabtiles_tooltip_line1, #tabtiles_tooltip_line2
   { color: white; background-color: black; line-height: 1.1em;
     font-family: Arial, Helmet, Freesans, sans-serif; white-space: normal}
   #tabtiles_tooltip_line2 {padding-top: 0.4em; font-size: 0.7em}
@@ -219,6 +219,6 @@
   #tabtiles[class~='mini'] {padding-bottom: 0.11em}
   #tabtiles[class~='full'] {padding-bottom: 0.22em}
   #tabtiles[class~='full_shadow'] .tabtiles_tile[class~="tabtiles_sel"] .tabtiles_contentdiv .tabtiles_text {text-shadow: 0.075em 0.09em 0.07em #777}
-  #tabtiles[class~='full_shadow'] .tabtiles_sel .tabtiles_contentdiv .tabtiles_text .tabtiles_closemsg {text-shadow: none}  
-  
+  #tabtiles[class~='full_shadow'] .tabtiles_sel .tabtiles_contentdiv .tabtiles_text .tabtiles_closemsg {text-shadow: none}
+
 }

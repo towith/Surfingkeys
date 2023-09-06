@@ -59,13 +59,11 @@ function listen2(request, sendResponse) {
   return options;
 }
 
-chrome.extension.onRequest.addListener(
-  function(request, sender, sendResponse)
-  {
-    const options = listen2(request, sendResponse);
-  }
-);
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+  if (request.__source__ !== 'tabTilesMsg') {
+    return;
+  }
+
   listen1(request, sender, sendResponse);
   const options = listen2(request, sendResponse);
 })
@@ -232,11 +230,6 @@ function listen1(request, sender, sendResponse) {
   }
 }
 
-// main request handler
-chrome.extension.onRequest.addListener(
-    function (request, sender, sendResponse) {
-      listen1(request, sender, sendResponse);
-  });
 
 var lastSelectedTab = -1;
 
