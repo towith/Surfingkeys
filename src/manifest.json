@@ -67,17 +67,31 @@
             ],
             "match_about_blank": true,
             "js": [
-                "content.js",
+                "content.js"
+            ],
+            "css": [
+                "content.css"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "<all_urls>",
+                "http://*/*",
+                "https://*/*"
+            ],
+            "match_about_blank": true,
+            "js": [
                 "tabtiles/tabtiles-default.js",
                 "tabtiles/utils.js",
                 "tabtiles/tabtiles.js"
             ],
             "css": [
-                "content.css",
                 "tabtiles/tabtiles.css"
             ],
-            "run_at": "document_start",
-            "all_frames": true
+            "run_at": "document_end",
+            "all_frames": false
         }
     ],
     "options_page": "tabtiles/tabtiles-options.html",
