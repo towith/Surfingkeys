@@ -62,3 +62,64 @@ div.surfingkeys_cursor:empty {
     text-align: center;
     vertical-align: middle;
 }
+
+
+/* custom */
+
+#sk_omnibar {
+    border-radius: 0!important;
+    box-shadow: -1px -1px 7px 2px lightgrey;
+    border: 1px solid lightgray;
+    width:unset;
+    top:0;
+}
+.sk_theme .separator{
+    display:none
+}
+#sk_tabs{
+    background: unset;
+}
+div.sk_tab_wrap{
+    border-top: unset;
+    padding-top: unset;
+}
+div.sk_tab{
+    display: flex;
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DAE6F5), color-stop(100%,lightblue));*/
+    /*background: lightblue;*/
+    width: 20em!important;
+    margin: auto;
+}
+
+
+.sk_theme {
+    font-family: SauceCodePro Nerd Font, Consolas, Menlo, monospace;
+    font-size: 10pt;
+    background: #f0edec;
+    color: #2c363c;
+}
+.sk_theme tbody {
+    color: #f0edec;
+}
+.sk_theme input {
+    color: #2c363c;
+}
+.sk_theme .url {
+    color: #1d5573;
+}
+.sk_theme .annotation {
+    color: #2c363c;
+}
+.sk_theme .omnibar_highlight {
+    color: #88507d;
+}
+.sk_theme #sk_omnibarSearchResult ul li:nth-child(odd) {
+    background: #f0edec;
+}
+.sk_theme #sk_omnibarSearchResult ul li.focused {
+    background: #cbd9e3;
+}
+#sk_status,
+#sk_find {
+    font-size: 10pt;
+}
