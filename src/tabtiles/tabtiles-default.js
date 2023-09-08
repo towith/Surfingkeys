@@ -6,28 +6,28 @@ function tabtiles_defaultOptions()
 {
   var opt =
   {
-    minheight: 25, // px
+    minheight: 16, // px
     maxheight: 100, // px
-    pctheight: 0.045, // ratio, not percentage..
+    pctheight: 0.02, // ratio, not percentage..
     showat: 'bottom', // show at top or bottom
     backgroundtransparent: true, // background is transparent (clear) or translucent (white)
     disableMiniView: false, // fixed zoom - don't resize to mini view
-    allowWhenRestored: true,
-    allowWhenMaximized: true,
+    allowWhenRestored: false,
+    allowWhenMaximized: false,
     allowWhenFullscreen: true,
     alternateHomepage: 'http://www.google.com',
     autohide: false,
-    sensitivity: 0, // sensitivity
+    sensitivity: 2, // sensitivity
     disableKeyboard: false, // disable keyboard navigation and search
     disableTooltip: false,
     searchInNewTab: true, // open search results in a new tab
-    addressInNewTab: true, // open navigate-to-address in a new tab
+    addressInNewTab: false, // open navigate-to-address in a new tab
     enableAddressBar: true,
     searchProvider: 'google',
     searchProvider_custom: '',
-    centerTiles: false,
+    centerTiles: true,
     largeNewTab: false,
-    hideHorizontalScrollbar: false,
+    hideHorizontalScrollbar: true,
     min_pctheight: 0.65,
     centerTooltip: true,
     minheight_mini: 12,
@@ -36,7 +36,7 @@ function tabtiles_defaultOptions()
     showzoneis1px: false,
     disableTTS: false,
     disableKeyNav: false,
-    hideInterval: 1500,
+    hideInterval: 0,
     autoFullscreen:true
   }
   return opt;

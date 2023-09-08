@@ -78,7 +78,7 @@
   #tabtiles_buttons:hover span.tabtiles_button {/*background-color: #ccc; */opacity: 1}
   #tabtiles_buttons span.tabtiles_back/*, #tabtiles_buttons span.tabtiles_forward*/ {background-color: #aaa}
   #tabtiles_buttons .tabtiles_go, #tabtiles_buttons .tabtiles_cancel, #tabtiles_buttons .tabtiles_show
-  { font-s1ize: 0.8em}
+  { font-size: 0.8em}
 
   #tabtiles_buttons .tabtiles_button, #tabtiles_buttons input {float: left; display: block;}
   #tabtiles_buttons .tabtiles_button, #tabtiles_buttons input {font-size: 0.75em; line-height: 0.75em}
@@ -192,7 +192,7 @@
   #tabtiles_buttons .tabtiles_go {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
 
   #tabtiles_buttons input
-  { border: solid 1px gray; /*margin: 0 0.2em; */position: relative; /*top: 0.1em; line-height: 1em*/ height: 1em; width: 8em}
+  { border: solid 1px gray; /*margin: 0 0.2em; */position: relative; /*top: 0.1em; line-height: 1em*/ height: 1em; width: 30em}
 
   #tabtiles_blankspacer {padding: 0; padding-right: 6.2em; visibility: hidden}
 
