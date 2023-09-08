@@ -76,6 +76,9 @@ function isEmptyObject(obj) {
 }
 
 function applySettings(api, normal, rs) {
+    const mySetting = require('./surfingkeys.setting.gen');
+    rs = {...mySetting, ...rs};
+    debugger;
     for (var k in rs) {
         if (runtime.conf.hasOwnProperty(k)) {
             runtime.conf[k] = rs[k];
