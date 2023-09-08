@@ -6,7 +6,7 @@ import { marked } from 'marked';
 
 RUNTIME("getTopSites", null, function(response) {
     var urls = response.urls.map(function(u) {
-        return `<li><a href="${u.url}"><i style="background:url('chrome://favicon/${u.url}') no-repeat"></i>${u.title}</a></li>`;
+        return `<li><a href="${u.url}"><i style="background:url('chrome://favicon/${u.url}') no-repeat"></i>${u.title} ${u.url}</a></li>`;
     });
     setSanitizedContent(document.querySelector("#topSites>ul"), urls.join("\n"));
     var source = document.getElementById('quickIntroSource').innerHTML;

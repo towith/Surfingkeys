@@ -1,6 +1,15 @@
 ﻿module.exports = {
     showAdvanced: true,
     snippets: `
+api.mapkey('oo', 'open new tab', function () {
+    api.RUNTIME("openLink", {
+            tab: {
+                    tabbed: true,
+                    active: true
+                },
+            url: "chrome-extension://aajlcoiaogpknhgninhopncaldipjdnp/pages/start.html"
+        });
+});
 settings.stealFocusOnLoad=true;
 settings.focusAfterClosed = 'last';
 settings.focusOnSaved=true;
