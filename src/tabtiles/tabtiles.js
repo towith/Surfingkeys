@@ -11,7 +11,7 @@
   var tabtiles_adjust_pctheight = tabtiles_adjust_pctheight_mini; // ratio
 
   // load tabtiles options from local storage - call goes out to the background page
-  function loadOptions(callback)
+  function loadOptions(...callback)
   {
     try
     {
@@ -28,7 +28,10 @@
               minheight_mini = options.minheight_mini;
               console.log('tabtiles - loaded options');
             }
-            if(callback) callback();
+            if (callback)
+              for (let callbackE of callback) {
+                callbackE();
+              }
           }
         });
     }
@@ -1060,7 +1063,11 @@
     function()
     {
       if(document.body && !options_loaded)
-        loadOptions(tabtiles_load_afteroptions);
+        loadOptions(tabtiles_load_afteroptions, () => {
+          if (options.autoFullscreen) {
+            chrome.runtime.sendMessage({name: "set_fullscreen", __source__: "tabTilesMsg"});
+          }
+        });
     }, false);
 
   var tabtiles_hiding_horizontalScrollbar = false;
@@ -3204,5 +3211,6 @@ else if (document.onwebkitfullscreenchange === null)
       }
 
     });
+
 }
 )(document, window);

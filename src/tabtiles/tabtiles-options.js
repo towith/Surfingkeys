@@ -83,7 +83,8 @@
       showzoneis1px: "showzoneis1px",
       disableTTS: "disableTTS",
       disableKeyNav: "disableKeyNav",
-      hideInterval: "hideInterval"
+      hideInterval: "hideInterval",
+      autoFullscreen: "autoFullscreen"
     };
     return ret;
   }

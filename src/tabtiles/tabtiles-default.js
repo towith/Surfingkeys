@@ -4,8 +4,8 @@
 
 function tabtiles_defaultOptions()
 {
-  var opt = 
-  { 
+  var opt =
+  {
     minheight: 25, // px
     maxheight: 100, // px
     pctheight: 0.045, // ratio, not percentage..
@@ -21,7 +21,7 @@ function tabtiles_defaultOptions()
     disableKeyboard: false, // disable keyboard navigation and search
     disableTooltip: false,
     searchInNewTab: true, // open search results in a new tab
-    addressInNewTab: true, // open navigate-to-address in a new tab 
+    addressInNewTab: true, // open navigate-to-address in a new tab
     enableAddressBar: true,
     searchProvider: 'google',
     searchProvider_custom: '',
@@ -36,12 +36,13 @@ function tabtiles_defaultOptions()
     showzoneis1px: false,
     disableTTS: false,
     disableKeyNav: false,
-    hideInterval: 1500
+    hideInterval: 1500,
+    autoFullscreen:true
   }
   return opt;
 }
 
-var tabtiles_searchProviders = 
+var tabtiles_searchProviders =
 [ {name: 'google', url: 'http://www.google.com/search?q='},
   {name: 'bing',   url: 'http://www.bing.com/search?q='},
   {name: 'yahoo',  url: 'http://search.yahoo.com/search?p='},
