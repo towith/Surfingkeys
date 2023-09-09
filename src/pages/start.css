@@ -91,3 +91,8 @@ kbd {
 #randomTip span.annotation {
     padding-left: 32px;
 }
+
+/*custom*/
+body {
+    zoom: 1.25;
+}
