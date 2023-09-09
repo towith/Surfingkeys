@@ -686,7 +686,11 @@ function start(browser) {
             });
         }
     };
-
+    self.getIntroFile = function (message, sender, sendResponse) {
+        request(`file:///D:/z_my/data.cal/inchCal/notesCal/notice.md`, function (resp) {
+            _response(message, sendResponse, {content: resp});
+        });
+    };
 
     function _getHistory(text, maxResults, cb, sortByMostUsed) {
         browser.getLatestHistoryItem(text, maxResults, (items) => {
