@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>New Tab</title>
-        <link rel="stylesheet" href="../content.css">
-        <link rel="stylesheet" href="markdown.css">
-        <link rel="stylesheet" href="start.css">
-    </head>
-    <body>
-        <template id="quickIntroSource">
+<head>
+    <meta charset="UTF-8">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="../content.css">
+    <link rel="stylesheet" href="markdown.css">
+    <link rel="stylesheet" href="start.css">
+</head>
+<body>
+<!--    @formatter:off-->
+        <template id="someInfoSource">
+#### It's %time now ,%topSiteLen Top sites
         </template>
-        <div id="content" class="markdown-body">
-            <div id="screen1" style="display: none;">
-                <div id="quickIntro">
-                </div>
-                <div id="topSites">
-                    <h2>Top Sites</h2>
-                    <ul></ul>
-                </div>
-                <h2 style="text-align: center" id="show-full-list-of-surfingkeys"><a href="#">Keys Help</a></h2>
-                <div id="randomTip">
-                </div>
-            </div>
-            <div id="screen2" style="display: none;">
-                <p id="back"><a href='#'>🔙</a></p>
-                <div id="sk_usage">
-                </div>
-            </div>
+    <!--    @formatter:on-->
+<div id="content" class="markdown-body">
+    <div id="someInfoShow"></div>
+    <div id="screen1" style="display: none;">
+        <div id="quickIntro">
         </div>
-        <script src="start.js"></script>
-        <script src="../content.js"></script>
-    </body>
+        <div id="topSites">
+            <h2>Top Sites</h2>
+            <ul></ul>
+        </div>
+        <h2 style="text-align: center" id="show-full-list-of-surfingkeys"><a href="#">Keys Help</a></h2>
+        <div id="randomTip">
+        </div>
+    </div>
+    <div id="screen2" style="display: none;">
+        <p id="back"><a href='#'>🔙</a></p>
+        <div id="sk_usage">
+        </div>
+    </div>
+</div>
+<script src="start.js"></script>
+<script src="../content.js"></script>
+</body>
 </html>

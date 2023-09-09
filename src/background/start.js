@@ -677,7 +677,10 @@ function start(browser) {
             chrome.topSites.get(function(urls) {
                 urls = _filterByTitleOrUrl(urls, message.query);
                 _response(message, sendResponse, {
-                    urls: urls
+                    urls: urls,
+                    someInfo: {
+                        topSiteLen: urls.length
+                    }
                 });
             });
         } else {

@@ -9,6 +9,23 @@ RUNTIME("getTopSites", null, function(response) {
         return `<li><a href="${u.url}"><i style="background:url('chrome://favicon/${u.url}') no-repeat"></i>${u.title} ${u.url}</a></li>`;
     });
     setSanitizedContent(document.querySelector("#topSites>ul"), urls.join("\n"));
+
+    function format(str, args) {
+        return str.replace(/%(\w+)/g, (_, key) => args[key]);
+    }
+
+    var source = document.getElementById('someInfoSource').innerHTML;
+    let someInfo = response.someInfo;
+    const update = () => {
+        if (document.hidden) return update;
+        let now = new Date();
+        (someInfo = someInfo || {}).time = `${now.toLocaleDateString()} ${now.toTimeString().split(/\s+/)[0]}`;
+        const formatted = format(source, someInfo);
+        setSanitizedContent(document.querySelector('#someInfoShow'), marked.parse(formatted));
+        return update;
+    };
+    setInterval(update(), 1000);
+
     RUNTIME("getIntroFile", null, function (res) {
         var source = res.content;
         setSanitizedContent(document.querySelector('#quickIntro'), marked.parse(source));
