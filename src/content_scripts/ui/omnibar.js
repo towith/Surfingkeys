@@ -380,7 +380,19 @@ function createOmnibar(front, clipboard) {
 
     self.createURLItem = function(b, rxp) {
         b.title = (b.title && b.title !== "") ? b.title : b.url;
-        var type = "🔥", additional = "", uid = b.uid;
+        var type = "▪", additional = "", uid = b.uid;
+        var faviconUrl = undefined;
+
+        function getFavicon(url) {
+            var _url_endpos = url.indexOf('://');
+            if (_url_endpos == -1) var _url = url;
+            else {
+                var _url_endpos_root = url.indexOf('/', _url_endpos + 3);
+                if (_url_endpos_root == -1) _url = url;
+                else _url = url.substr(0, _url_endpos_root);
+            }
+            return 'chrome://favicon/' + url;
+        }
         if (b.hasOwnProperty('lastVisitTime')) {
             type = "🕜";
             additional = `<span class=omnibar_timestamp># ${timeStampString(b.lastVisitTime)}</span>`;
@@ -393,12 +405,16 @@ function createOmnibar(front, clipboard) {
         } else if(b.hasOwnProperty('width')) {
             type = "🔖";
             uid = "T" + b.windowId + ":" + b.id;
+            faviconUrl = getFavicon(b.url);
         // } else if(b.type && /^\p{Emoji}$/u.test(b.type)) {
         } else if(b.type && b.type.length === 2 && b.type.charCodeAt(0) > 255) {
             type = b.type;
         }
+
+        const inlineStyle = faviconUrl ? `` : "style='display:inline-block;'"
+
         var li = createElementWithContent('li',
-            `<div class="title">${type} ${self.highlight(rxp, htmlEncode(b.title))} ${additional}</div><div class="url">${self.highlight(rxp, b.url)}</div>`);
+            `<div class="title" ${inlineStyle}>${faviconUrl ? `<i style="height:1em;width: 1em;display: inline-block;background:url('${faviconUrl}') no-repeat" ></i>` : type}  ${self.highlight(rxp, htmlEncode(b.title))} ${additional}</div> <div class="url" ${inlineStyle}>${self.highlight(rxp, b.url)}</div>`);
         li.uid = uid;
         li.url = b.url;
         return li;
