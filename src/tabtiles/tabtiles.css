@@ -192,7 +192,7 @@
   #tabtiles_buttons .tabtiles_go {border-top-right-radius: 0.3em; border-bottom-right-radius: 0.3em}
 
   #tabtiles_buttons input
-  { border: solid 1px gray; /*margin: 0 0.2em; */position: relative; /*top: 0.1em; line-height: 1em*/ height: 1em; width: 30em}
+  { border: solid 1px gray; /*margin: 0 0.2em; */position: relative; /*top: 0.1em; line-height: 1em*/ height: 1em; width: 20em}
 
   #tabtiles_blankspacer {padding: 0; padding-right: 6.2em; visibility: hidden}
 

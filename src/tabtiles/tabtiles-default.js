@@ -34,7 +34,7 @@ function tabtiles_defaultOptions()
     oldStyle: false,
     disableSelShadow: false,
     showzoneis1px: false,
-    disableTTS: false,
+    disableTTS: true,
     disableKeyNav: false,
     hideInterval: 0,
     autoFullscreen:true
