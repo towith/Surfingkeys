@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "minimum_chrome_version": "22",
-    "name": "Surfingkeys",
+    "name": "MySurfingkeys",
     "short_name": "Rich shortcuts in vim spirit for productivity with keyboard.",
     "description": "Rich shortcuts to click links/switch tabs/scroll, capture pages, use your browser like vim for productivity.",
     "icons": {
@@ -117,5 +117,8 @@
         "tabtiles/icons/closetab_gray.svg",
         "tabtiles/icons/closetab_black.svg"
     ],
-    "content_security_policy": "script-src 'self'; object-src 'self'"
+    "content_security_policy": "script-src 'self'  'unsafe-hashes' 'sha256-z8YqVZ7IXRRoTiQQm3Kny9/kmcRQwWejnaXN1Pp8w9E=' 'nonce-rAnd0m'; object-src 'self'",
+    "chrome_url_overrides": {
+        "newtab": "pages/home.html?action=redirect"
+    }
 }

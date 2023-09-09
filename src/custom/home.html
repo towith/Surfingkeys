@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy"
+          content="script-src 'self'  'unsafe-hashes' 'sha256-CvtPVOFtmDSC81+w/FoWRME54FoBSNEnvLhKuWdHbx0=' 'nonce-rAnd0m'; object-src 'self'">
+    <script nonce="rAnd0m">
+        const now = new Date();
+        const yesterday = new Date(now.valueOf());
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        const todayS = getDateSignature(now);
+        const yesterdayS = getDateSignature(yesterday);
+
+        if (localStorage.getItem(yesterdayS)) {
+            localStorage.removeItem(yesterdayS);
+        }
+
+        window.addEventListener('keydown', (event) => {
+            if (event.ctrlKey) {
+                if (event.key == 'b') {
+                    msg(`set default search`);
+                    cancel = true;
+                    localStorage.setItem(todayS, 'other');
+                    sleep(500);
+                    window.location.href = `${window.location.href}?action=redirect`;
+                } else if (event.key == 'r') {
+                    msg(`clear search info`);
+                    cancel = true;
+                    localStorage.removeItem(todayS);
+                    sleep(500);
+                    window.location.href = `${window.location.href}?action=redirect`;
+                }
+            }
+        });
+        const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
+
+
+        function getDateSignature(execTime) {
+            return execTime.getFullYear() * 10000 + (execTime.getMonth() + 1) * 100 + execTime.getDate();
+        }
+
+
+        function getTimeSignature(execTime) {
+            return execTime ? ((execTime.getHours() * 10000 + execTime.getMinutes() * 100 + execTime.getSeconds()) + '').padStart(6, '0') : '';
+        }
+
+        function msg(msg) {
+            document.write(`<h2>${msg}</h2>`)
+        }
+
+        function redirectSearch() {
+            let searchEngine = localStorage.getItem(todayS);
+            msg(`redirect to ${searchEngine}`);
+            if ('google' == searchEngine) {
+                window.location.href = 'http://www.google.com';
+                //window.location.href = 'https://searx.work/search'; // + '?categories=it';
+            } else {
+                window.location.href = 'https://bing.com/search';
+            }
+        }
+
+        async function run() {
+
+            const params = new URLSearchParams(window.location.search);
+            const action = params.get("action");
+            if ('redirect' == action) {
+                let searchEngine = false && localStorage.getItem(todayS);
+                //let searchEngine = localStorage.getItem(todayS);
+                if (!searchEngine) {
+                    msg(`wait detect searchEngine`);
+                    let googlePromise = fetch(`http://clients1.google.se/generate_204`, {'mode': 'no-cors'});
+                    // let googlePromise=new Promise((resolve)=>{resolve(true)});
+                    Promise.race([googlePromise, new Promise((resolve, reject) => {
+                        setTimeout(() => reject(new Error('google timeout')), 7 * 1000);
+                    })])
+                        .then(res => {
+                            localStorage.setItem(todayS, "google");
+                            redirectSearch();
+                        }).catch(err => {
+                        localStorage.setItem(todayS, "other");
+                        redirectSearch();
+                        console.log('err', err);
+                    });
+                } else {
+                    redirectSearch(searchEngine);
+                }
+            }
+        }
+
+        run().then();
+    </script>
+</head>
+
+<body>
+<h1>Good Luck!</h1>
+</body>
+
+</html>

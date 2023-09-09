@@ -123,6 +123,7 @@ module.exports = (env, argv) => {
             new CopyWebpackPlugin({
                 patterns: [
                     { from: 'src/pages', to: 'pages', globOptions: pagesCopyOptions },
+                    {from: 'src/custom', to: 'pages', globOptions: pagesCopyOptions},
                     {from: 'src/tabtiles', to: 'tabtiles'},
                     { from: 'src/content_scripts/ui/frontend.html', to: 'pages' },
                     { from: 'src/content_scripts/ui/frontend.css', to: 'pages' },

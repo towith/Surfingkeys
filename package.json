@@ -1,5 +1,5 @@
 {
-  "name": "Surfingkeys",
+  "name": "MySurfingkeys",
   "version": "1.15.0",
   "description": "Map your keys for web surfing, expand your browser with javascript and keyboard.",
   "main": "background.js",
