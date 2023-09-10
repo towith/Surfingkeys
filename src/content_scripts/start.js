@@ -1,3 +1,5 @@
+// noinspection CssUnknownTarget
+
 import { RUNTIME } from './common/runtime.js';
 import {
     setSanitizedContent,
