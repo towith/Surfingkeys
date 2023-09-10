@@ -961,7 +961,9 @@
                     if (document.body && !options_loaded)
                         loadOptions(tabtiles_load_afteroptions, () => {
                             if (options.autoFullscreen) {
-                                chrome.runtime.sendMessage({name: "set_fullscreen", __source__: "tabTilesMsg"});
+                                if (!window.location.href.startsWith("chrome-extension://")) {
+                                    chrome.runtime.sendMessage({name: "set_fullscreen", __source__: "tabTilesMsg"});
+                                }
                             }
                         });
                 }, false);
