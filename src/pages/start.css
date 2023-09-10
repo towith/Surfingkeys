@@ -3,7 +3,7 @@
 }
 #topSites, #quickIntro {
     display: table-cell;
-    padding: 10 5%;
+    padding: 10px 5%;
     width: 50%;
 }
 #topSites i {
@@ -92,7 +92,36 @@ kbd {
     padding-left: 32px;
 }
 
+
 /*custom*/
 body {
-    zoom: 1.25;
+    /*zoom: 1.10;*/
+}
+
+.markdown-body {
+    font-family: -apple-system, monospace, Roboto;
+}
+
+.markdown-body h1, .markdown-body h2 {
+    font-family: "微软雅黑 Light", fantasy;
+}
+
+.markdown-body h3 .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+    font-family: "Fira Code", sans-serif;
+}
+
+#content {
+    font-size: medium;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
 }
