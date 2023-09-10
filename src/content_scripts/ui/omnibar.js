@@ -328,7 +328,19 @@ function createOmnibar(front, clipboard) {
             handler.tabbed = self.tabbed ^ evt.shiftKey;
             handler.onEnter() && front.hidePopup();
         } else if (evt.keyCode === KeyboardUtils.keyCodes.space) {
-            self.expandAlias(self.input.value, '') && evt.preventDefault();
+            if (evt.shiftKey) {
+                var ret = false, fi = self.resultsDiv.querySelector('li.focused');
+                var url;
+                if (fi) {
+                    url = fi.url;
+                    if (url) {
+                        (self.input.value = url) && evt.preventDefault();
+                    }
+                }
+
+            } else {
+                self.expandAlias(self.input.value, '') && evt.preventDefault();
+            }
         } else if (evt.keyCode === KeyboardUtils.keyCodes.backspace) {
             self.collapseAlias() && evt.preventDefault();
         }
