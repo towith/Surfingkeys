@@ -960,11 +960,6 @@
                 function () {
                     if (document.body && !options_loaded)
                         loadOptions(tabtiles_load_afteroptions, () => {
-                            if (options.autoFullscreen) {
-                                if (!window.location.href.startsWith("chrome-extension://")) {
-                                    chrome.runtime.sendMessage({name: "set_fullscreen", __source__: "tabTilesMsg"});
-                                }
-                            }
                         });
                 }, false);
 
@@ -1037,7 +1032,13 @@
                         tabtiles_mouseout();
                     }, false);
 
-                //chrome.runtime.sendMessage({name: 'set_fullscreen',__source__: "tabTilesMsg"});
+                if (options.autoFullscreen) {
+                    if (!window.location.href.startsWith("chrome-extension://")) {
+                        chrome.runtime.sendMessage({name: "set_fullscreen", __source__: "tabTilesMsg"});
+                    }
+                }
+
+
                 // seems to be a bug - it won't allow this to work in metro
                 // so not much point
                 // might add a way to save what the state is, so it can set it itself?
