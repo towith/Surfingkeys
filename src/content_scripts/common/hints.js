@@ -22,6 +22,9 @@ import {
 function createHints(insert, normal) {
     var self = new Mode("Hints");
     var hintsHost = document.createElement("div");
+    hintsHost.style.position = 'absolute';
+    hintsHost.style.top = 0;
+    hintsHost.style.left = 0;
     hintsHost.className = "surfingkeys_hints_host";
     hintsHost.attachShadow({ mode: 'open' });
     var hintsStyle = createElementWithContent('style', `
