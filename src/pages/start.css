@@ -2,7 +2,8 @@
     font-size: small;
 }
 #topSites, #quickIntro {
-    display: table-cell;
+    /*display: table-cell;*/
+    display: contents;
     padding: 10px 5%;
     width: 50%;
 }
