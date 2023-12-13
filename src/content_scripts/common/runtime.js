@@ -49,7 +49,7 @@ var runtime = (function() {
             clickableSelector: "",
             editableSelector: "div.CodeMirror-scroll,div.ace_content",
             cursorAtEndOfInput: true,
-            defaultSearchEngine: "w",
+            defaultSearchEngine: "n",
             defaultVoice: "Daniel",
             editableBodyCare: true,
             enableAutoFocus: true,

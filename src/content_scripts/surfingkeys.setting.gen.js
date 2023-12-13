@@ -16,7 +16,6 @@ settings.focusOnSaved=true;
 settings.omnibarSuggestion=true;
 settings.showModeStatus=false;
 settings.focusFirstCandidate=false;
-settings.defaultSearchEngine='w';
 settings.tabsMRUOrder=true;
 settings.historyMUOrder=true;
 settings.newTabPosition='last';
@@ -27,6 +26,11 @@ settings.caseSensitive=false;
 settings.smartCase=true;
 settings.cursorAtEndOfInput=true;
 settings.digitForRepeat=true;
+
+api.addSearchAlias('l', 'googleL', 'https://g.luciaz.me/search?q=', 's', 'http://api.bing.com/osjson.aspx?query=', function (response) {
+    var res = JSON.parse(response.text);
+    return res[1];
+});
 
 // stock sites
 const helperUrl = 'http://localhost:9303/#';
