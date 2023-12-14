@@ -359,14 +359,16 @@ module.exports = function(api) {
 
     // localStorage.setItem('tc_SearchAddr','https://whoogle.io/search?q=')
     // localStorage.setItem('tc_SuggestAddr','https://g.luciaz.me/search?q=')
-
-    const searchAddr = localStorage.getItem('tc_SearchAddr') || 'https://www.bing.com/search?setmkt=en-us&setlang=en-us&q=';
-    const suggestAddr = localStorage.getItem('tc_SuggestAddr') || 'https://api.bing.com/osjson.aspx?query=';
-
-    addSearchAlias('n', 'custom', searchAddr, 's', suggestAddr, function (response) {
-        var res = JSON.parse(response.text);
-        return res[1];
-    });
+    // chrome.storage.local.set({tc_SearchAddr: 'https://g.luciaz.me/search?q='}, function() {
+    // });
+    chrome.storage.local.get(['tc_SearchAddr'], function (result) {
+        let searchAddr = result['tc_SearchAddr'] || 'https://www.bing.com/search?setmkt=en-us&setlang=en-us&q=';
+        console.log({searchAddr,result});
+        addSearchAlias('n', 'custom', searchAddr, 's', 'https://api.bing.com/osjson.aspx?query=', function (response) {
+            var res = JSON.parse(response.text);
+            return res[1];
+        });
+    })
 
     addSearchAlias('g', 'google', 'https://www.google.com/search?q=', 's', 'https://www.google.com/complete/search?client=chrome-omni&gs_ri=chrome-ext&oit=1&cp=1&pgcl=7&q=', function (response) {
         var res = JSON.parse(response.text);
